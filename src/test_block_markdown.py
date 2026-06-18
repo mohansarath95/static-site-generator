@@ -153,7 +153,7 @@ the **same** even with inline stuff
         self.assertEqual(html,"<div><h1>Heading 1</h1><h2>Heading 2 with <b>bold</b></h2><h6>Heading 6</h6></div>")
 
     def test_lists(self):
-        md = """- Item 1\n- Item 2 with *italic*"""
+        md = """- Item 1\n- Item 2 with _italic_"""
         node = markdown_to_html_node(md)
         html = node.to_html()
         self.assertEqual(
