@@ -1,5 +1,6 @@
 
 import os
+import sys
 import shutil
 from textnode import TextNode, TextType
 from gen_content import  generate_page, generate_pages_recursive
@@ -24,11 +25,14 @@ def copy_directory_contents(source, destination):
         
 
 def main():
+    basepath = "/"
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
     source = "./static"
-    destination = "./public"
+    destination = "./docs"
     setup_destination(destination)
     copy_directory_contents(source, destination)
-    generate_pages_recursive("./content", "./template.html", "./public")
+    generate_pages_recursive("./content", "./template.html", "./docs", basepath)
     
 
 if __name__ == "__main__":    main()
