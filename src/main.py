@@ -2,6 +2,9 @@
 import os
 import shutil
 from textnode import TextNode, TextType
+from gen_content import  generate_page
+from htmlnode import HTMLNode, LeafNode, ParentNode
+
 
 def setup_destination(destination):
     if os.path.exists(destination):
@@ -25,5 +28,7 @@ def main():
     destination = "./public"
     setup_destination(destination)
     copy_directory_contents(source, destination)
+    generate_page("./content/index.md", "./template.html", "./public/index.html")
+
 
 if __name__ == "__main__":    main()
