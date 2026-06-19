@@ -2,7 +2,7 @@
 import os
 import shutil
 from textnode import TextNode, TextType
-from gen_content import  generate_page
+from gen_content import  generate_page, generate_pages_recursive
 from htmlnode import HTMLNode, LeafNode, ParentNode
 
 
@@ -28,7 +28,7 @@ def main():
     destination = "./public"
     setup_destination(destination)
     copy_directory_contents(source, destination)
-    generate_page("./content/index.md", "./template.html", "./public/index.html")
-
+    generate_pages_recursive("./content", "./template.html", "./public")
+    
 
 if __name__ == "__main__":    main()

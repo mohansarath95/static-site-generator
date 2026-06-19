@@ -57,7 +57,7 @@ def markdown_to_html_node(markdown) -> HTMLNode:
     blocks = markdown_to_blocks(markdown)
     children = []
     for block in blocks:
-        print(repr(block))
+
         block_type = block_to_block_type(block)
         
         if block_type == BlockType.PARAGRAPH:
